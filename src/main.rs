@@ -19,6 +19,9 @@ fn main() {
     }
 }
 
+/// Runs the interpreter with a given script.
+/// # Arguments
+/// - `script`: The script to run.
 fn run_script(script: &String) -> io::Result<()> {
     let mut file = File::open(script)?;
     let mut source = String::new();
@@ -29,16 +32,23 @@ fn run_script(script: &String) -> io::Result<()> {
     Ok(())
 }
 
+/// Enters the command prompt and directly takes user input.
 fn run_prompt() {
     let mut input = String::new();
 
     loop {
         print!("> ");
         stdin().read_line(&mut input).ok().expect("Failed to read input line.");
-        run(&mut input);
+
+        if !input.is_empty() {
+            run(&mut input);
+        }
     }
 }
 
+/// Runs the given source.
+/// # Arguments
+/// - `input`: The source that should be run.
 fn run(source: &String) {
 
 }
