@@ -61,3 +61,11 @@ fn run(source: &String) {
         println!("Token");
     }
 }
+
+// fn error(line: u32, message: &String) {
+//     report(line, &String::from(""), message);
+// }
+
+// fn report(line: u32, location: &String, message: &String) {
+//     println!("[line {}] Error: {}: {}", line, location, message);
+// }
