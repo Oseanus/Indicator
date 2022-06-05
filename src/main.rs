@@ -5,6 +5,10 @@ use std::io::stdin;
 use std::io::Read;
 use std::fs::File;
 
+mod interpreter;
+use interpreter::lexer::Lexer; 
+use interpreter::token::Token;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let length = args.len();
@@ -50,5 +54,10 @@ fn run_prompt() {
 /// # Arguments
 /// - `input`: The source that should be run.
 fn run(source: &String) {
+    let mut lexer = Lexer::new(source.to_string());
+    let tokens = lexer.scan_tokens();
 
+    for t  in tokens {
+        println!("Token");
+    }
 }
